@@ -59,9 +59,9 @@ class _EndpointSelectPageState extends State<EndpointSelectPage> {
             ),
             padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
           ),
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => EndpointTabView(endpoint))
-          )
+          onTap: endpoint.status == "up" ? () => Navigator.of(context).push(
+           MaterialPageRoute(builder: (context) => EndpointTabView(endpoint))
+          ) : null
         )
       )
     );

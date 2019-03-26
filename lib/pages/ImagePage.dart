@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../types/DImage.dart';
-import '../components/loader.dart';
+import '../components/Loader.dart';
 
 class ImagePage extends StatefulWidget {
   final DImage image;

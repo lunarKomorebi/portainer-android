@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../types/DContainer.dart';
-import '../components/loader.dart';
+import '../components/Loader.dart';
 import '../components/LogsWidget.dart';
 import '../components/ControlButton.dart';
 import 'LogsPage.dart';
