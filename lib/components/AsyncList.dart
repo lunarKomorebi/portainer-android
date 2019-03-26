@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import './ErrorHandler.dart';
 
 class AsyncList extends StatelessWidget {
   final Future future;
@@ -16,7 +17,12 @@ class AsyncList extends StatelessWidget {
           case ConnectionState.none: return Center(child: Text('Waiting to start'));
           case ConnectionState.waiting: return Center(child: CircularProgressIndicator());
           default:
-            if (snapshot.hasError) return Center(child: Text('Error: ${snapshot.error}'));
+            if (snapshot.hasError) {
+              // print(snapshot.error);
+              // return Center(child: Text('Error: ${snapshot.error}'));
+              var outFromHandler = ErrorHandler.returnErrorString(snapshot.error.toString());
+              return Center(child: Text(outFromHandler));
+              }
             return ListView.builder(
               padding: const EdgeInsets.all(10.0),
               itemBuilder: (context, i) {
