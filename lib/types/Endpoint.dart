@@ -22,7 +22,7 @@ class Endpoint {
   Future<List<DContainer>> getContainers() async {
     if (containers != null) return containers;
     final _response = await MyApp.api.get('/api/endpoints/$id/docker/containers/json?all=1');
-    print(_response[0]);
+    // print(_response[0]);
     containers = [];
     (_response as List<dynamic>)
       .map((container) => DContainer.fromJson(this, container))

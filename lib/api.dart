@@ -7,13 +7,16 @@ import 'types/Endpoint.dart';
 
 import 'package:http/http.dart' as http;
 
+
+
 class Config {
   String url;
   String username;
   String password;
-  Config(this.url, this.username, this.password);
+  List<int> pinCode;
+  Config(this.url, this.username, this.password, this.pinCode);
   factory Config.fromJson(Map<String, dynamic> json) {
-    return Config(json['url'], json['username'], json['password']);
+    return Config(json['url'], json['username'], json['password'], json['pinCode'].cast<int>());
   }
 }
 
@@ -31,6 +34,11 @@ class Api {
     config = Config.fromJson(json.decode(secrets));
   }
   
+  Future<List<int>> getPCode() async {
+    await loadConfig();
+    return config.pinCode;
+  }
+
   Future<void> authorize() async {
     await loadConfig();
     print("url: " + config.url);

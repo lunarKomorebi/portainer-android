@@ -3,6 +3,7 @@ import 'api.dart';
 import 'components/AsyncList.dart';
 import 'pages/EndpointTabView.dart';
 import 'types/Endpoint.dart';
+import './LockScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: EndpointSelectPage(title: 'Select an endpoint'),
+      // home: EndpointSelectPage(title: 'Select an endpoint'),
+      home: PassCodeScreen(api: api),
     );
   }
 }
